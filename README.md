@@ -1,2 +1,2 @@
 # algorithms-python
-This repository is to I recreate famous algorithms and data structures to train my code and logic sills in Python language.
+This repository serves to recreate famous algorithms and data structures to train my coding and logic skills in the Python language.
