@@ -55,23 +55,54 @@ class LinkedList():
         return 0
 
     def delete_node(self,node,val):
-        if node == None:
+        if node is None:
             print("Elemento não está na lista")
+
         elif node.data == val:
             if node.next:
+            # caso em que o nó a ser deletado tem ponteiro para um nó
                 node.data = node.next.data
                 node.next = node.next.next
-                return 1
+                return True
             else:
-                return 0
-        if self.delete_node(node.next,val) == 0:
-            node.next = None
-            return 1
+                self.head = None
+                return False
+        
+        previous = None
+        cur = node
+        while cur:
+            if cur.data == val:
+                if previous:
+                    previous.next = cur.next
+                else:
+                    self.head = cur.next
+                    
+                return True
+            
+            previous = cur
+            cur = cur.next
+        
+        print("Elemento não está na lista")
+        return False
 
+    def delete_pos(self,position):
+        if self.head is None:
+            return "A lista é vazia"
+        
+        index = 0
+        current = self.head
 
+        while current.next and index < position:
+            previous = current
+            current = current.next
+            index += 1 
 
-    def delete_pos(self):
-        pass
+        if index < position:
+            print("\nÍndice fora de índice")
+        elif index == 0:
+            self.head = current.next
+        else:
+            previous.next = current.next
 
     def delete_list(self):
         self.head = None
@@ -109,8 +140,13 @@ if __name__ == "__main__":
     print(li.search(li.head,10))
     print(li.search(li.head,6))
     print(li.lenght(li.head))
+
     li.delete_node(li.head,15)
     li.show_nodes()
 
+    li.delete_pos(1)
+    li.delete_pos(5)
+    li.show_nodes()
+    
     li.delete_list()
     print(li.show_nodes())
