@@ -1,4 +1,5 @@
 import random
+import time
 
 def findSmallest(arr):
     smallest = arr[0]
@@ -18,7 +19,7 @@ def selectionSort(arr):
     return newArr
 
 
-random_arr = random.sample(range(1,100),50)
+random_arr = random.sample(range(1,50001),50000)
 
 repeated = [1,1,1,1,7,7,7,7,7,5,2,0,3,9,11,19,36,23,7,9]
 
@@ -37,5 +38,9 @@ lexicographic_ordered = ['ana','beatriz','breno','carlos','eduardo','lucas','est
 if __name__ == "__main__":
     item = 'lucas'
     print(random_arr)
+    start_time = time.time()
     resultado = selectionSort(random_arr)
+    end_time = time.time()
     print(resultado)
+    execution_time = end_time - start_time
+    print(execution_time)
