@@ -32,7 +32,9 @@ reversed = [100,70,50,33,25,11,5,2]
 
 reversed_repeated = [100,70,70,70,70,65,61,61,61,61,61,55,55,55,55,43,37,25,13,5]
 
+lexicographic_ordered = ['ana','beatriz','breno','carlos','eduardo','lucas','ester','murilo']
+
 if __name__ == "__main__":
-    item = 100
-    resultado = binary_search(reversed,item,False)
+    item = 'lucas'
+    resultado = binary_search(lexicographic_ordered,item,True)
     print(resultado)
