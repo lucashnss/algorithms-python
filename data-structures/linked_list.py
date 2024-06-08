@@ -146,4 +146,4 @@ if __name__ == "__main__":
     li.show_nodes()
 
     li.delete_list()
-    print(li.show_nodes())
+    li.show_nodes()
