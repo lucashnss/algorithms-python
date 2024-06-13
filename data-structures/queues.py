@@ -1,7 +1,7 @@
 from node import Node
 
 class Queue():
-    def __init__(self,max_size=5) -> None:
+    def __init__(self,max_size=float("inf")) -> None:
         self.front = None
         self.rear = None
         self.size = 0
