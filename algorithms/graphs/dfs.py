@@ -1,17 +1,19 @@
 from stack import Stack
 
-def dfs(graph,begin):
+def dfs(graph,begin,target):
     search_stack = Stack()
-    search_stack.push(begin)
+    search_stack.push((begin,[begin]))
     visited = []
     while not search_stack.is_empty():
-        vertex = search_stack.pop()
+        (vertex,path) = search_stack.pop()
         if vertex not in visited:
             visited.append(vertex)
-            for neighbor in graph[vertex]:
-                if neighbor not in visited:
-                    search_stack.push(neighbor)
-    return visited
+        for neighbor in graph[vertex]:
+            if neighbor == target:
+                return path + [neighbor]
+            if neighbor not in visited:
+                search_stack.push((neighbor,path + [neighbor]))
+    return None
 
 if __name__ == "__main__":
 
@@ -22,5 +24,5 @@ if __name__ == "__main__":
              "E":["F"],
              "F":[]}
     
-    print(dfs(graph,"A"))
+    print(dfs(graph,"A","E"))
     
