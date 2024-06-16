@@ -32,8 +32,8 @@ class Queue():
         if self.size == 0:
             self.front = new_node
             self.rear = new_node
-        
-        self.rear.next = new_node
+        else:
+            self.rear.next = new_node
         self.rear = new_node
         self.size += 1
 
