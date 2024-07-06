@@ -9,10 +9,7 @@ class Stack():
         return self.size
     
     def empty(self):
-        if self.size == 0:
-            return True
-        else:
-            return False
+        return self.size == 0
     
     def peek(self):
         return self.top.data
